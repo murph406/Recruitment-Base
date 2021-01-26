@@ -1,0 +1,294 @@
+.intro-block {
+  height: 100vh;
+  .distribute;
+  .distribute-center;
+
+
+  .container {
+    max-width: 1140px;
+    padding: 20vh 0 20vh;
+    opacity: 1;
+    transition-delay: 0.2s;
+    transition: opacity 0.3s cubic-bezier(.71, .1, .48, .94);
+  }
+
+  .mini-info {
+    float: left;
+    width: 100%;
+    overflow-wrap: break-word;
+
+    .mq-screen-md-min( {
+        width: 32%;
+
+
+        ul:nth-child(1) {
+          padding-right: 2rem;
+        }
+
+        ul:nth-child(2) {
+          padding-left: 0;
+        }
+      }
+
+    );
+
+    .mq-screen-md-max( {
+        // margin-bottom: 3rem;
+        display: none;
+      }
+
+    );
+
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+
+    h3.accent {
+      .fontLabel;
+      .grey3;
+      // padding-bottom: 8px;
+      // line-height: 0px;
+
+    }
+
+
+
+    ul {
+      padding-top: 0;
+      margin-top: 0;
+
+
+      li {
+        list-style: none;
+        padding-bottom: 12px;
+        overflow-wrap: break-word;
+
+      }
+
+      p {
+        .fontSize1;
+        overflow-wrap: break-word;
+      }
+    }
+
+
+  }
+
+  .project-text-block {
+    width: auto;
+    height: 500px;
+    float: left;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 3rem;
+    ;
+
+    .mq-screen-md-min( {
+        width: 60%;
+      }
+
+    );
+
+    h2 {
+      .fontSize5;
+      text-align: left;
+      margin-top: -10px;
+
+
+      .mq-screen-xs( {
+          .fontSize4;
+
+          margin-top: 10px;
+          width: 100%;
+
+        }
+
+      );
+    }
+
+    p {
+      .fontSize1;
+      line-height: 2;
+      overflow-wrap: break-word;
+    }
+  }
+}
+
+.full-width {
+  img {
+    width: 100%;
+  }
+}
+
+.hero-img {
+  height: 200px;
+  .bg-grey1;
+
+  .mq-screen-md-min( {
+      height: 500px;
+    }
+
+  );
+
+  background-size: cover;
+  background-position: bottom;
+}
+
+.content-block {
+  width: 100%;
+  display: flex;
+
+  .content-container {
+    .distribute;
+    .distribute-center;
+
+    .distribute-container {
+      width: 62%;
+
+
+      .mq-screen-xs( {
+          width: 100%;
+          .distribute;
+          .distribute-vertical;
+
+        }
+
+      );
+
+      .mq-screen-sm( {
+          width: 100%;
+
+        }
+
+      );
+
+      .mq-screen-md( {
+          width: 95%;
+        }
+
+      );
+
+      .mq-screen-lg( {
+          width: 85%;
+        }
+
+      );
+    }
+
+    .block-title {
+      width: 30%;
+      height: auto;
+      position: relative;
+      float: left;
+      .pl-1;
+
+      .mq-screen-xs( {
+          width: 100%;
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+
+      );
+
+      h3 {
+        .fontSize3;
+      }
+    }
+
+    .block-content {
+      width: 63%;
+      float: right;
+
+      .mq-screen-xs( {
+          width: 100%;
+          .distribute;
+        }
+
+      );
+
+      p {
+        .fontSize1;
+        // .pr-2;
+        // .pl-1;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        line-height: 2;
+      }
+    }
+
+  }
+
+}
+
+.block-img {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  img {
+    max-width: 100%;
+    pointer-events: none;
+    .br-1;
+
+  }
+}
+
+.block-vid {
+  text-align: center;
+  position: relative;
+  display: block;
+  width: 100%;
+
+  video {
+    max-width: 100%;
+  }
+
+  video.sixhundredtwenty {
+    height: 240px;
+
+    .mq-screen-md-min( {
+        height: 400px;
+      }
+
+    );
+
+    .mq-screen-lg-min( {
+        height: 620px;
+      }
+
+    );
+  }
+
+  video.eighthundred {
+    height: 320px;
+
+    .mq-screen-md-min( {
+        height: 460px;
+      }
+
+    );
+
+    .mq-screen-lg-min( {
+        height: 800px;
+      }
+
+    );
+  }
+}
