@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 
-import { ProjectDetails } from '../data/data'
-
 export class Nav extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +53,7 @@ export class Nav extends Component {
     return (
       <header>
         <div className="logo">
-          <NavLink onClick={this.homeButton} to="/">Ryan Murphy</NavLink>
+          <NavLink onClick={this.homeButton} to="/">Patrick Murphy</NavLink>
         </div>
         <div className="hamburger-container clearfix" onClick={this._toggleNav}>
           <div className={"hamburger clearfix " + visibility}>
@@ -68,7 +66,7 @@ export class Nav extends Component {
         <div className={"nav " + (visibility)}>
           <div className="flex distribute distribute-center">
               <ul className={"nav-list " + (listHover)} onMouseEnter={this.listHover} onMouseLeave={this.listHover}>
-                {ProjectDetails.map((project, index) => {
+                {/* {ProjectDetails.map((project, index) => {
                   const { client, slug } = project
                   return (
                     <li >
@@ -77,7 +75,7 @@ export class Nav extends Component {
                       </NavLink>
                     </li>
                   )
-                })}
+                })} */}
               </ul>
             </div>
         </div>

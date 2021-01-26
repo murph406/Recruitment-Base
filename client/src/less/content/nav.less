@@ -25,7 +25,7 @@
             position: absolute;
             height: 3px;
             width: 100%;
-            background: #000;
+            background: #fff;
             opacity: 1;
             left: 0;
             -webkit-transform: rotate(0deg);
@@ -74,7 +74,7 @@
         // });
 
         span {
-            background-color: #000;
+            background-color: #fff;
         }
 
         span:nth-child(1) {
@@ -132,10 +132,10 @@
     position: fixed;
     height: 100vh;
     width: 100%;
-    background-color: #fff;
     top: 0;
     left: 0;
     z-index: 2;
+    .bg-red;
 
     min-height: 100vh;
     overflow-x: scroll;
@@ -251,12 +251,12 @@
     padding: 1.2rem 2rem;
 
     a {
-        color: #000;
+        color: #fff;
         text-decoration: none;
         .fontSize2;
 
         &:hover {
-            color: red;
+            color: @color-complement;
             transition: @allTransition;
         }
     }

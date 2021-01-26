@@ -8,7 +8,7 @@ import {
 
 import './css/main.css'
 import ScrollToTop from './scrollToTop';
-import { NotFound } from './components'
+import { NotFound, Home, Nav, Footer } from './components'
 
 
 class App extends Component {
@@ -17,6 +17,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        <Nav />
         <div>
           <Switch>
             <Route exact path="/" render={() => {
@@ -30,6 +31,7 @@ class App extends Component {
             <Route component={NotFound} />
           </Switch>
         </div>
+        <Footer />
       </BrowserRouter>
     );
   }
@@ -38,12 +40,4 @@ class App extends Component {
 export default App;
 
 
-const Home = () => {
-  return (
-    <div style={{ width: '100vw', height: '100vh', backgroundColor: 'red' }}>
-      <div className="intro-block ">
 
-      </div>
-    </div>
-  )
-}
