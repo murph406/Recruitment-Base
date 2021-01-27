@@ -3,10 +3,14 @@ import React from 'react';
 import { CircleButton } from '../../elements'
 import { BasketballGraphic, BasketballGraphic2 } from '../../assets/icons/svg-paths'
 
-export const Home = () => {
+export const Home = (props) => {
+
+  const { data } = props
+  const { } = data
+  
   return (
     <div>
-      <HomeHero/>
+      <HomeHero />
     </div>
   )
 }
@@ -30,7 +34,7 @@ export const HomeHero = () => {
 export const InstaFeed = () => {
   return (
     <div>
-      
+
     </div>
   )
 }

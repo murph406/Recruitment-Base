@@ -48,12 +48,14 @@ export class Nav extends Component {
   }
 
   render() {
-    let { visibility, listHover } = this.state
+    const { visibility, listHover } = this.state
+    const { data } = this.props
+    const { firstName, lastName } = data
 
     return (
       <header>
         <div className="logo">
-          <NavLink onClick={this.homeButton} to="/">Patrick Murphy</NavLink>
+          <NavLink onClick={this.homeButton} to="/">{firstName} {lastName}</NavLink>
         </div>
         <div className="hamburger-container clearfix" onClick={this._toggleNav}>
           <div className={"hamburger clearfix " + visibility}>
@@ -65,8 +67,8 @@ export class Nav extends Component {
         </div>
         <div className={"nav " + (visibility)}>
           <div className="flex distribute distribute-center">
-              <ul className={"nav-list " + (listHover)} onMouseEnter={this.listHover} onMouseLeave={this.listHover}>
-                {/* {ProjectDetails.map((project, index) => {
+            <ul className={"nav-list " + (listHover)} onMouseEnter={this.listHover} onMouseLeave={this.listHover}>
+              {/* {ProjectDetails.map((project, index) => {
                   const { client, slug } = project
                   return (
                     <li >
@@ -76,8 +78,8 @@ export class Nav extends Component {
                     </li>
                   )
                 })} */}
-              </ul>
-            </div>
+            </ul>
+          </div>
         </div>
       </header>
     );
