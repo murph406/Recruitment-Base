@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
+import { ClientIcon } from '../assets/icons/svg-paths'
 
 export class Nav extends Component {
   constructor(props) {
@@ -57,14 +58,24 @@ export class Nav extends Component {
         <div className="logo">
           <NavLink onClick={this.homeButton} to="/">{firstName} {lastName}</NavLink>
         </div>
-        <div className="hamburger-container clearfix" onClick={this._toggleNav}>
-          <div className={"hamburger clearfix " + visibility}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+
+
+        <div className="hamburger-container distribute distribute-center ">
+
+          <div className="client">
+            <ClientIcon />
           </div>
+          <div className="" onClick={this._toggleNav}>
+            <div className={"hamburger clearfix " + visibility}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
         </div>
+
         <div className={"nav " + (visibility)}>
           <div className="flex distribute distribute-center">
             <ul className={"nav-list " + (listHover)} onMouseEnter={this.listHover} onMouseLeave={this.listHover}>

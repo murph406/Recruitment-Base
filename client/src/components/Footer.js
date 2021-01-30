@@ -1,13 +1,26 @@
 import React from 'react';
+import { BasketballIcon } from '../assets/icons/svg-paths'
 
 export const Footer = () => {
   return (
-    <div className="footer full-width ">
-        <div className="stripe-med">
-          Made with 
-        <Heart />
-            on Earth.
+    <div className="footer full-width">
+
+      <div className="text-container">
+
+        <h1>
+          Balling
+        </h1>
+        <div className="basketball">
+          <BasketballIcon color={'#9e9e9e'} />
         </div>
+        <h1 style={{color: "#9e9e9e", paddingRight: '4px'}}>
+          n 
+        </h1>
+        <h1>
+            Earth
+          </h1>
+      </div>
+
     </div>
   );
 }

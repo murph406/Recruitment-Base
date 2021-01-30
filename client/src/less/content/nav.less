@@ -4,6 +4,17 @@
     z-index: 9999;
     right: 0;
 
+    .client {
+        width: 30px;
+        .mr-2;
+        cursor: pointer;
+
+
+        svg {
+            fill: @white;
+        }
+    }
+
     .hamburger {
         width: 22px;
         height: 32px;
@@ -278,11 +289,35 @@
 }
 
 .footer {
-    width: 100vw;
-    color: #767676;
-    text-align: center;
-    .fontSize3;
-    font-size: 14px;
+    height: 10vh;
+    .distribute;
+    .distribute-center;
+    align-items: center;
+
+    .text-container {
+        .distribute;
+        .distribute-horizontal;
+
+        .basketball {
+            display: inline-block;
+            width: 17px;
+            bottom: 0;
+            // .bg-warning;
+            padding-right: 0px;
+            padding-left: 4px;
+            align-self: center;
+            margin-bottom: -8px;
+        }
+
+        h1 {
+            .fontSize2;
+            .grey3;
+
+
+        }
+    }
+
+
 
     .heart {
         position: relative;

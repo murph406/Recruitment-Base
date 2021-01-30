@@ -3,11 +3,16 @@
 
 
 const client = {
-  firstName: 'Ryan',
+  firstName: 'Patrick',
   lastName: 'Murphy',
   email: 'test@gmail.com',
   password: '406',
   phone: '4062416585',
+  heroPhoto:"https://dl.dropboxusercontent.com/s/qi4bfw2b57yo111/hero-image.png?dl=0",
+  stats: [
+      {type: '', info: ''}
+  ],
+  isntaCredentials: ''
 }
 
 module.exports = {

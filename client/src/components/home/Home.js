@@ -1,35 +1,29 @@
 import React from 'react';
 
-import { CircleButton } from '../../elements'
+// import { CircleButton } from '../../elements'
 import { BasketballGraphic, BasketballGraphic2 } from '../../assets/icons/svg-paths'
+import { Graphic } from './Graphic'
+import { StatsDetail } from './Stats'
+import { Hero } from './Hero'
+
 
 export const Home = (props) => {
 
   const { data } = props
-  const { } = data
-  
+  const { heroPhoto, firstName } = data
+
   return (
     <div>
-      <HomeHero />
+      <Graphic />
+      <StatsDetail />
+      <Hero photoRef={heroPhoto} name={firstName}/>
     </div>
   )
 }
 
-export const HomeHero = () => {
-  return (
-    <div className="hero">
-      <div className="bb-graphic">
-        <BasketballGraphic2
-          backgroundColor={'#fff'}
-          textColor={'#fff'}
-          textBlock1={'KID'}
-          textBlock2={'ON'}
-          textBlock3={"FIRE"}
-        />
-      </div>
-    </div>
-  )
-}
+
+
+
 
 export const InstaFeed = () => {
   return (

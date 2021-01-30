@@ -1,24 +1,193 @@
-@hero-graphic: 300px;
+@hero-graphic: 450px;
 
-.hero {
+.home-graphic {
     .full-width;
-    .full-height;
+    height: 80vh;
+    // .full-height;
     .bg-red;
     .distribute;
     .distribute-center;
 
     .bb-graphic {
-        width: @hero-graphic * 3;
+        width: @hero-graphic * 2.5;
 
 
 
         .text-style {
             .mt-1;
             fill: @red;
-            font-family: 'Plain-Bold';
-            font-size: 66px;
+            .fontSize5;
+            // font-family: 'Plain-Bold';
+            // font-size: 50px;
         }
     }
+}
+
+.stats-detail {
+    .full-width;
+    height: 20vh;
+    .mt-2;
+
+    .stat {
+        text-align: center;
+
+        .mq-screen-sm( {}
+
+        );
+
+
+
+        h1 {
+            .fontSize3;
+            .black;
+            .lineHeight1;
+
+            .mq-screen-xs( {
+                    .fontSize2;
+
+                }
+
+            );
+
+            .mq-screen-sm( {
+                    .fontSize2;
+
+                }
+
+            );
+        }
+
+        p {
+            .fontSize2;
+            .grey3;
+            .lineHeight1;
+            .pt-1;
+
+        }
+    }
+
+    .explore {
+        .mt-2;
+
+        h1 {
+            .fontSize1;
+            .grey3;
+            .lineHeight1;
+        }
+
+        .icon {
+            width: 20px;
+        }
+    }
+}
+
+
+.hero {
+    .full-width;
+    justify-content: space-between;
+
+    .hero-image {
+        width: 600px;
+
+        .mq-screen-xs( {
+                display: none;
+            }
+
+        );
+
+        .mq-screen-sm( {
+                display: none;
+            }
+
+        );
+
+        .mq-screen-md( {
+                // width: 600px;
+                display: none;
+            }
+
+        );
+
+        .mq-screen-lg( {
+                width: 400px;
+
+            }
+
+        );
+
+        img {
+            .bg-grey1;
+            .br-2;
+        }
+    }
+
+    .text-block {
+        width: 800px;
+        .pr-2;
+        .pl-2;
+        .pt-2;
+        .pb-4;
+
+        .mq-screen-lg( {
+                width: 600px;
+            }
+
+        );
+
+        h1 {
+            .fontSize4;
+        }
+
+        p {
+            .fontSize2;
+            .grey3;
+            .lineHeight4;
+        }
+
+
+        .clickable-text {
+            cursor: pointer;
+            .bg-red;
+            position: absolute;
+            border-radius: 100px;
+            padding-left: @unit * 3;
+            padding-right: @unit * 3;
+
+            p {
+                .fontSize2;
+                .white;
+                .lineHeight1;
+            }
+
+            .icon {
+                margin-bottom: -8px;
+                width: 25px;
+                .pl-1;
+
+                svg {
+                    fill: @white;
+                }
+            }
+
+            &:hover {
+                background-color: @color-complement;
+
+                p {
+                    color: @black;
+                }
+
+                .icon {
+                    svg {
+                        fill: @black;
+
+                    }
+                }
+            }
+
+        }
+    }
+
+
 }
 
 
