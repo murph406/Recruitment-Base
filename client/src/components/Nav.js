@@ -1,101 +1,63 @@
-import React, { Component } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { ClientIcon } from '../assets/icons/svg-paths'
 
-export class Nav extends Component {
-  constructor(props) {
-    super(props);
+export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, onHideNav, onToggleNav, onListHover, theme }) => {
 
-    this._toggleNav = this._toggleNav.bind(this);
-    this.hideNav = this.hideNav.bind(this);
-    this.listHover = this.listHover.bind(this);
-    this.homeButton = this.homeButton.bind(this);
+  const { firstName, lastName } = data
 
-    this.state = {
-      visibility: 'hidden',
-      listHover: 'not-hover',
-      isAuthenticated: ''
-    }
-  }
+  return (
+    <div>
+      <div className="logo">
+        <NavLink
+          onClick={onNavHome}
+          to="/">
+          <a style={{ color: '#fff' }}>
+            {firstName} {lastName}
+          </a>
+        </NavLink>
+      </div>
 
-  _toggleNav(e) {
-    this.setState({ visibility: 'show' });
-    if (this.state.visibility === 'hidden') {
-      this.setState({ visibility: 'show' });
-    } else {
-      this.setState({ visibility: 'hidden' });
-    }
-  }
+      <div className="hamburger-container distribute distribute-center ">
 
-  hideNav() {
-    this.setState({ visibility: 'hidden' });
-  }
-
-  listHover(e) {
-    this.setState({ listHover: 'is-hover' });
-    if (this.state.listHover === 'not-hover') {
-      this.setState({ listHover: 'is-hover' });
-    } else {
-      this.setState({ listHover: 'not-hover' });
-    }
-  }
-
-  homeButton() {
-    let { visibility } = this.state
-
-    if (visibility === 'show') {
-      this.setState({ visibility: 'hidden' });
-    }
-  }
-
-  render() {
-    const { visibility, listHover } = this.state
-    const { data } = this.props
-    const { firstName, lastName } = data
-
-    return (
-      <header>
-        <div className="logo">
-          <NavLink onClick={this.homeButton} to="/">{firstName} {lastName}</NavLink>
+        <div className="client">
+          <ClientIcon color={'#fff'} />
         </div>
 
+        <HamburgerIcon
+          visibility={visibility}
+          onClick={onToggleNav} />
+      </div>
 
-        <div className="hamburger-container distribute distribute-center ">
-
-          <div className="client">
-            <ClientIcon />
-          </div>
-          <div className="" onClick={this._toggleNav}>
-            <div className={"hamburger clearfix " + visibility}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-
+      <div className={"nav " + (visibility)}>
+        <div className="flex distribute distribute-center">
+          <ul className={"nav-list " + (listHover)} onMouseEnter={onListHover} onMouseLeave={onListHover}>
+            {projectDetails.map((project, index) => {
+              const { pageName, slug } = project
+              return (
+                <li >
+                  <NavLink onClick={onHideNav} to={slug} >
+                    {pageName}
+                  </NavLink>
+                </li>
+              )
+            })}
+          </ul>
         </div>
-
-        <div className={"nav " + (visibility)}>
-          <div className="flex distribute distribute-center">
-            <ul className={"nav-list " + (listHover)} onMouseEnter={this.listHover} onMouseLeave={this.listHover}>
-              {/* {ProjectDetails.map((project, index) => {
-                  const { client, slug } = project
-                  return (
-                    <li >
-                      <NavLink onClick={this.hideNav} to={"/projects/" + slug} >
-                        {client}
-                      </NavLink>
-                    </li>
-                  )
-                })} */}
-            </ul>
-          </div>
-        </div>
-      </header>
-    );
-  }
+      </div>
+    </div>
+  );
 }
 
-
-// export default withRouter(Nav);
+const HamburgerIcon = ({ visibility, onClick }) => {
+  return (
+    <div onClick={onClick}>
+      <div className={"hamburger " + visibility}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  )
+}
