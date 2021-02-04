@@ -2,9 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ClientIcon } from '../assets/icons/svg-paths'
 
-export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, onHideNav, onToggleNav, onListHover, theme }) => {
+export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, onHideNav, onToggleNav, onListHover, theme, onNavLogin }) => {
 
   const { firstName, lastName } = data
+
+
 
   return (
     <div>
@@ -12,7 +14,7 @@ export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, on
         <NavLink
           onClick={onNavHome}
           to="/">
-          <a style={{ color: '#fff' }}>
+          <a style={{ color: (theme === 'light') ? '#fff' : '#000' }}>
             {firstName} {lastName}
           </a>
         </NavLink>
@@ -20,11 +22,15 @@ export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, on
 
       <div className="hamburger-container distribute distribute-center ">
 
-        <div className="client">
-          <ClientIcon color={'#fff'} />
-        </div>
+        <NavLink to={'/login'} onClick={() => onHideNav('/login')} >
+          <div className="client" onClick={onNavLogin}>
+            <ClientIcon color={(theme === 'light') ? '#fff' : '#000'} />
+          </div>
+        </NavLink>
+
 
         <HamburgerIcon
+          theme={theme}
           visibility={visibility}
           onClick={onToggleNav} />
       </div>
@@ -36,7 +42,7 @@ export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, on
               const { pageName, slug } = project
               return (
                 <li >
-                  <NavLink onClick={onHideNav} to={slug} >
+                  <NavLink onClick={() => onHideNav(slug)} to={slug} >
                     {pageName}
                   </NavLink>
                 </li>
@@ -49,14 +55,17 @@ export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, on
   );
 }
 
-const HamburgerIcon = ({ visibility, onClick }) => {
+const HamburgerIcon = ({ visibility, onClick, theme }) => {
+
+
+
   return (
     <div onClick={onClick}>
       <div className={"hamburger " + visibility}>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span style={{ backgroundColor: (theme === 'light') ? '#fff' : '#000' }} ></span>
+        <span style={{ backgroundColor: (theme === 'light') ? '#fff' : '#000' }}></span>
+        <span style={{ backgroundColor: (theme === 'light') ? '#fff' : '#000' }}></span>
+        <span style={{ backgroundColor: (theme === 'light') ? '#fff' : '#000' }}></span>
       </div>
     </div>
   )

@@ -29,8 +29,8 @@ const client = {
     { type: 'Highschool', value: 'Gonzaga Prep' },
     { type: 'Club', value: 'AAU Spo' },
     { type: 'GPA', value: '3.3' },
-
   ],
+  
   photoRefs: [
     { url: '', info: '', date: new Date },
   ],

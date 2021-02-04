@@ -1,12 +1,16 @@
 export * from './Footer';
-// export * from './Login';
 export * from './Nav';
 export * from './NotFound';
-// export * from './Projects';
-export * from  './home/HomePage';
-export * from  './about/AboutPage';
 
-// export * from  './VideoPlayer';
+export * from  './home';
+export * from  './about';
+export * from './photos'
+export * from './highlights'
+export * from './full-games'
+export * from './auth'
+
+
+
 
 
 
