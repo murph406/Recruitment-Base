@@ -2,14 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ClientIcon } from '../assets/icons/svg-paths'
 
-export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, onHideNav, onToggleNav, onListHover, theme, onNavLogin }) => {
+export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, onHideNav, onToggleNav, onListHover, theme, onNavLogin, isNavVisible }) => {
 
   const { firstName, lastName } = data
 
 
+  console.log("DATA!!!", isNavVisible)
 
   return (
-    <div>
+    <div style={{display: (isNavVisible) ? null : 'none'}}>
       <div className="logo">
         <NavLink
           onClick={onNavHome}

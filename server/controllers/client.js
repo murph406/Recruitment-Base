@@ -9,11 +9,12 @@ const client = {
   password: '406',
   phone: '4062416585',
   heroPhoto: "https://dl.dropboxusercontent.com/s/qi4bfw2b57yo111/hero-image.png?dl=0",
+  aboutHero: '',
   stats: [
     { type: 'Points', value: '12', date: new Date },
     { type: 'Ave Minutes', value: '26', date: new Date },
     { type: 'Field Goal Attempts', value: '32', date: new Date },
-    { type: '3-Point Field Goals Made', value: '2', date: new Date },
+    { type: '3-Point Field Goals Made', value: '2', date: new Date }, 
     { type: 'Free Throw Percent', value: '84', date: new Date },
     { type: 'Rebounds', value: '4', date: new Date },
     { type: 'Assists', value: '2', date: new Date },
@@ -30,9 +31,29 @@ const client = {
     { type: 'Club', value: 'AAU Spo' },
     { type: 'GPA', value: '3.3' },
   ],
-  
+  links: [
+    { type: 'Youtube', value: 'www.youtube.com' },
+  ],
   photoRefs: [
-    { url: '', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/gcl5bmpay4zy6t9/photo-1.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/0xkmy68f1wggd9z/photo-2.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/86wgcd4tvmy6qhh/photo-3.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/wzzdvudqt7h6bj5/photo-4.png?dl=0', info: '', date: new Date },
+
+    { url: 'https://dl.dropboxusercontent.com/s/gcl5bmpay4zy6t9/photo-1.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/0xkmy68f1wggd9z/photo-2.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/86wgcd4tvmy6qhh/photo-3.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/wzzdvudqt7h6bj5/photo-4.png?dl=0', info: '', date: new Date },
+
+    { url: 'https://dl.dropboxusercontent.com/s/gcl5bmpay4zy6t9/photo-1.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/0xkmy68f1wggd9z/photo-2.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/86wgcd4tvmy6qhh/photo-3.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/wzzdvudqt7h6bj5/photo-4.png?dl=0', info: '', date: new Date },
+
+    { url: 'https://dl.dropboxusercontent.com/s/gcl5bmpay4zy6t9/photo-1.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/0xkmy68f1wggd9z/photo-2.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/86wgcd4tvmy6qhh/photo-3.png?dl=0', info: '', date: new Date },
+    { url: 'https://dl.dropboxusercontent.com/s/wzzdvudqt7h6bj5/photo-4.png?dl=0', info: '', date: new Date },
   ],
   highlightRefs: [
     { url: '', info: '', date: new Date },

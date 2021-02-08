@@ -30,7 +30,8 @@ class App extends Component {
       isAppReady: false,
       navVisibility: 'hidden',
       navListHover: 'not-hover',
-      navTheme: 'light'
+      navTheme: 'light',
+      isNavVisible: true
     }
   }
 
@@ -69,6 +70,17 @@ class App extends Component {
       this.setState({ navVisibility: 'show', navTheme: 'light' });
     } else {
       this.setState({ navVisibility: 'hidden' });
+    }
+  }
+
+  onToggleNavVisibility = () => {
+    const { isNavVisible } = this.state
+
+    if (isNavVisible) {
+      this.setState({ isNavVisible: false });
+    }
+    if (!isNavVisible) {
+      this.setState({ isNavVisible: true });
     }
   }
 
@@ -113,7 +125,7 @@ class App extends Component {
 
   render() {
 
-    const { client, isAppReady, navVisibility, navListHover, navTheme } = this.state
+    const { client, isAppReady, navVisibility, navListHover, navTheme, isNavVisible } = this.state
 
     if (isAppReady) {
       return (
@@ -126,6 +138,7 @@ class App extends Component {
             theme={navTheme}
             onNavHome={this.onNavigateHome}
             onHideNav={(slug) => this.onHideNav(slug)}
+            isNavVisible={isNavVisible}
             onToggleNav={this.onToggleNav}
             onListHover={this.listHover} />
           <div>
@@ -143,15 +156,15 @@ class App extends Component {
               }} />
 
               <Route exact path="/photos" render={() => {
-                return <PhotoPage />;
+                return <PhotoPage data={{ ...client }} toggleHeader={this.onToggleNavVisibility} />;
               }} />
 
               <Route exact path="/highlights" render={() => {
-                return <HighlightPage />;
+                return <HighlightPage data={{ ...client }} />;
               }} />
 
               <Route exact path="/full-games" render={() => {
-                return <FullGamesPage />;
+                return <FullGamesPage data={{ ...client }} />;
               }} />
 
               <Route exact path="/login" render={() => {
@@ -161,7 +174,7 @@ class App extends Component {
               <Route component={NotFound} />
             </Switch>
           </div>
-          <Footer />
+          <Footer isNavVisible={isNavVisible}/>
         </BrowserRouter>
       );
     } else
