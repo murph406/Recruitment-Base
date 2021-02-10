@@ -6,7 +6,7 @@ var routes = require('./routes');
 
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 
 
 app.use(bodyParser.json());
@@ -23,7 +23,8 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
 
 app.use('/api', routes);
 
-app.listen(port, () => console.log(`Listening on port ${port}`));

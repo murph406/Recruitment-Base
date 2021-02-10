@@ -42,8 +42,6 @@ const client = {
     { type: 'youtube', value: 'www.youtube.com', name: 'Youtube' },
     { type: 'any', value: 'www.youtube.com', name: 'Personal Website' },
     { type: 'linkedIn', value: 'www.youtube.com', name: 'LinkedIn' },
-
-
   ],
   photoRefs: [
     { url: 'https://dl.dropboxusercontent.com/s/gcl5bmpay4zy6t9/photo-1.png?dl=0', info: '', date: new Date },
