@@ -1,10 +1,14 @@
 import { NavLink, withRouter } from 'react-router-dom';
 
 
-export const TextButton = ({ children }) => {
+export const TextButton = ({ children, onClick }) => {
+    const _Click = () => {
+        onClick()
+    }
+
     return (
-        <NavLink to={'/about'}>
-            <div className="clickable-text">
+        <NavLink onClick={_Click} to={'/about'} >
+            <div className="clickable-text" >
                 {children}
             </div>
         </NavLink>

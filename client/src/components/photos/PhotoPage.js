@@ -7,7 +7,7 @@ export const PhotoPage = ({ data, toggleHeader }) => {
     const [currentImage, setCurrentImage] = useState(0);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-    const { photoRefs } = data
+    const { photoRefs, firstName } = data
 
     const openImageViewer = useCallback((index) => {
         setCurrentImage(index);
@@ -29,6 +29,8 @@ export const PhotoPage = ({ data, toggleHeader }) => {
                 ? <div>
                     <div className="header">
                         <h1>Photos</h1>
+                        <p>A collection of photos of {firstName}</p>
+
                     </div>
 
                     <div className="full-width">

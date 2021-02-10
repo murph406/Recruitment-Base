@@ -6,9 +6,6 @@ export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, on
 
   const { firstName, lastName } = data
 
-
-  console.log("DATA!!!", isNavVisible)
-
   return (
     <div style={{display: (isNavVisible) ? null : 'none'}}>
       <div className="logo">

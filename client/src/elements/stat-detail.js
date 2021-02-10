@@ -1,5 +1,3 @@
-
-
 export const StatsDetail = ({ textHeader, textDetail }) => {
     return (
         <div className='stat-detail-large'>
@@ -21,6 +19,25 @@ export const StatsDetailSmall = ({ textHeader, textDetail }) => {
             </div>
             <div className="text-small">
                 {textDetail}
+            </div>
+        </div>
+    )
+}
+
+
+export const LinkDetail = ({ linkName, icon, onClick }) => {
+    return (
+        <div className='link-detail'>
+            <div className={'distribute distribute-center'}>
+                <div className="content-container distribute distribute-center distribute-vertical" onClick={onClick}>
+
+                    <h4>
+                        {linkName}
+                    </h4>
+                    <div className={'icon'}>
+                        {icon}
+                    </div>
+                </div>
             </div>
         </div>
     )

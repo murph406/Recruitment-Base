@@ -38,37 +38,136 @@
 
 .small-stat-detail {
     text-align: center;
-    .mq-screen-sm( {}
+    .mt-4;
+    .mb-4;
+    .text-large {
+        .fontSize3;
+        .white;
+        .lineHeight4;
+    }
+
+    .text-small {
+        .fontSize2;
+        .white;
+        .pt-2;
+       
+
+    }
+
+    .mq-screen-xs( {
+            padding-bottom: 20px;
+
+            .text-large {
+                .fontSize2;
+                .lineHeight1;
+            }
+
+            .text-small {
+                .fontSize1;
+
+                .pt-1;
+            }
+        }
 
     );
 
+    .mq-screen-sm( {
+            padding-bottom: 20px;
+
+            .text-large {
+                .fontSize2;
+                .lineHeight4;
+            }
+
+            .text-small {
+                .fontSize1;
+
+                .pt-2;
+            }
+        }
+
+    );
+}
 
 
-    .text-large {
-        .fontSize2;
-        .black;
-        .lineHeight1;
+.link-detail {
+    .mt-4;
+    .mb-4;
+
+    .content-container {
+
+        .icon {
+            align-self: center;
+            width: 80px;
+        }
+
+
+        h4 {
+            .fontSize3;
+            .white;
+            .lineHeight3;
+            cursor: pointer;
+            text-align: center;
+            .pt-1;
+        }
+
+
+
 
         .mq-screen-xs( {
-                .fontSize2;
+
+                h4 {
+                    display: none;
+
+                }
+
+                .icon {
+                    width: 90px;
+                }
 
             }
 
         );
 
         .mq-screen-sm( {
-                .fontSize2;
+                h4 {
+                    .fontSize1;
+
+                }
 
             }
 
         );
+
+        .mq-screen-md( {
+
+                h4 {
+                    .fontSize3;
+                    .lineHeight3;
+
+
+                }
+
+            }
+
+        );
+
+        &:hover {
+            svg {
+                fill: @color-complement;
+                cursor: pointer;
+
+
+            }
+
+            ;
+
+            h4 {
+                color: @color-complement;
+            }
+        }
+
+
     }
 
-    .text-small {
-        .fontSize1;
-        .grey3;
-        .lineHeight1;
-        .pt-1;
-
-    }
 }

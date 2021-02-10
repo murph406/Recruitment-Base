@@ -7,10 +7,10 @@ import {
 } from 'react-router-dom';
 
 import './css/main.css'
-import ScrollToTop from './scrollToTop';
-import { NotFound, Home, Nav, Footer, AboutPage, PhotoPage, HighlightPage, FullGamesPage, LoginPage } from './components'
+import { Home, AboutPage, PhotoPage, HighlightPage, LoginPage, VideoPage } from './components'
+import { Footer, Nav, NotFound } from './elements'
 import { getClient } from './api/client'
-
+// import ScrollToTop from './scrollToTop';
 
 export const ProjectDetails = [
   { pageName: "Home", slug: '/home', navTheme: 'light', hidden: false },
@@ -148,7 +148,7 @@ class App extends Component {
               }} />
 
               <Route exact path="/home" render={() => {
-                return <Home data={{ ...client }} />;
+                return <Home data={{ ...client }} onNavTo={(slug) => this.onHideNav(slug)} />;
               }} />
 
               <Route exact path="/about" render={() => {
@@ -160,11 +160,23 @@ class App extends Component {
               }} />
 
               <Route exact path="/highlights" render={() => {
-                return <HighlightPage data={{ ...client }} />;
+                return (
+                  <VideoPage
+                    title={"Highlights"}
+                    textDetails={"A collection of highlights by "}
+                    data={{ ...client }}
+                    toggleHeader={this.onToggleNavVisibility} />
+                )
               }} />
 
               <Route exact path="/full-games" render={() => {
-                return <FullGamesPage data={{ ...client }} />;
+                return (
+                  <VideoPage
+                    title={"Full Games"}
+                    textDetails={"A collection of full games played by "}
+                    data={{ ...client }}
+                    toggleHeader={this.onToggleNavVisibility} />
+                )
               }} />
 
               <Route exact path="/login" render={() => {
@@ -174,7 +186,7 @@ class App extends Component {
               <Route component={NotFound} />
             </Switch>
           </div>
-          <Footer isNavVisible={isNavVisible}/>
+          <Footer isNavVisible={isNavVisible} />
         </BrowserRouter>
       );
     } else

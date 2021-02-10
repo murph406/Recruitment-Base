@@ -1,3 +1,7 @@
 export * from './circle-button'
 export * from './text-button'
 export * from './stat-detail'
+export * from './footer'
+export * from './nav'
+export * from './not-found'
+export * from './video-player'

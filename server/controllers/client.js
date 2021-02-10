@@ -9,12 +9,12 @@ const client = {
   password: '406',
   phone: '4062416585',
   heroPhoto: "https://dl.dropboxusercontent.com/s/qi4bfw2b57yo111/hero-image.png?dl=0",
-  aboutHero: '',
+  aboutHero: 'Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania. ... When the family returned to Philadelphia in 1991, Bryant joined the Lower Merion High School basketball team, leading it to the state championships four years in a row. With an eye on the NBA, he also started working out with the 76ers.',
   stats: [
     { type: 'Points', value: '12', date: new Date },
     { type: 'Ave Minutes', value: '26', date: new Date },
     { type: 'Field Goal Attempts', value: '32', date: new Date },
-    { type: '3-Point Field Goals Made', value: '2', date: new Date }, 
+    { type: '3-Point Field Goals Made', value: '2', date: new Date },
     { type: 'Free Throw Percent', value: '84', date: new Date },
     { type: 'Rebounds', value: '4', date: new Date },
     { type: 'Assists', value: '2', date: new Date },
@@ -26,13 +26,19 @@ const client = {
     { type: 'Class', value: 'Junior' },
     { type: 'Height', value: '6 6" ' },
     { type: 'Weight', value: '180' },
-    { type: 'Hometown', value: 'Spokane' },
+    { type: 'Hometown', value: 'Spokane, WA' },
     { type: 'Highschool', value: 'Gonzaga Prep' },
     { type: 'Club', value: 'AAU Spo' },
     { type: 'GPA', value: '3.3' },
   ],
   links: [
-    { type: 'Youtube', value: 'www.youtube.com' },
+    { type: 'youtube', value: 'www.youtube.com', name: 'Youtube' },
+    { type: 'any', value: 'www.youtube.com', name: 'Personal Website' },
+    { type: 'linkedIn', value: 'www.youtube.com', name: 'LinkedIn' },
+    { type: 'facebook', value: 'www.youtube.com', name: 'FaceBook' },
+    { type: 'twitter', value: 'www.youtube.com', name: 'Twitter' },
+    { type: 'instagram', value: 'www.youtube.com', name: 'Instagram' },
+
   ],
   photoRefs: [
     { url: 'https://dl.dropboxusercontent.com/s/gcl5bmpay4zy6t9/photo-1.png?dl=0', info: '', date: new Date },
@@ -56,10 +62,20 @@ const client = {
     { url: 'https://dl.dropboxusercontent.com/s/wzzdvudqt7h6bj5/photo-4.png?dl=0', info: '', date: new Date },
   ],
   highlightRefs: [
-    { url: '', info: '', date: new Date },
+    { url: 'https://www.youtube.com/embed/Jopi5e46PAY', info: 'Something', date: new Date, videoId: 'Jopi5e46PAY' },
+    { url: 'https://www.youtube.com/watch?v=cbuZfY2S2UQ', info: 'Something', date: new Date, videoId: 'Jopi5e46PAY' },
+    { url: 'https://www.youtube.com/watch?v=cbuZfY2S2UQ', info: 'Something', date: new Date, videoId: 'Jopi5e46PAY' },
+    { url: 'https://www.youtube.com/watch?v=cbuZfY2S2UQ', info: 'Something', date: new Date, videoId: 'cbuZfY2S2UQ' },
+
+
+
   ],
   fullGameRefs: [
-    { url: '', info: '', date: new Date },
+    { url: 'https://www.youtube.com/watch?v=cbuZfY2S2UQ', info: 'Something', date: new Date, videoId: 'Jopi5e46PAY' },
+    { url: 'https://www.youtube.com/watch?v=cbuZfY2S2UQ', info: 'Something', date: new Date, videoId: 'Jopi5e46PAY' },
+    { url: 'https://www.youtube.com/watch?v=cbuZfY2S2UQ', info: 'Something', date: new Date, videoId: 'Jopi5e46PAY' },
+    { url: 'https://www.youtube.com/watch?v=cbuZfY2S2UQ', info: 'Something', date: new Date, videoId: 'cbuZfY2S2UQ' },
+
   ],
 }
 

@@ -1,62 +1,110 @@
 
 import React, { useState } from 'react';
-import { StatsDetailSmall } from '../../elements'
+import { StatsDetailSmall, LinkDetail, } from '../../elements'
+import { HeroDetails } from './'
+import { FacebookIcon } from '../../assets/icons/svg-paths'
 
 export const AboutPage = (props) => {
     const { data } = props
-    const { heroPhoto, firstName, stats } = data
-
+    const { heroPhoto, firstName, stats, links, bio, aboutHero } = data
+    console.log(data)
     return (
         <div className="full-width">
             <div className="distribute distribute-center full-width" style={{ height: '75vh' }}>
-                <HeroDetails photoRef={heroPhoto} name={firstName} />
+                <HeroDetails photoRef={heroPhoto} name={firstName} text={aboutHero} />
             </div>
-            <div className="distribute distribute-center full-width bg-red" style={{ height: '50vh' }}>
-                <StatDetails />
-            </div>
+            {/* <div className=" full-width bg-red" style={{minHeight: '70vh'}}> */}
+                <StatDetails
+                    bio={bio}
+                    stats={stats}
+                    links={links} />
+            {/* </div> */}
         </div>
     )
 }
 
 
-export const HeroDetails = ({ photoRef, name }) => {
+
+
+const StatDetails = ({ stats, bio, links }) => {
+    const data = [
+        'Stats',
+        'Biography',
+        'Links'
+    ]
+    const [selected, toggleTabs] = useState(0)
+
+
+
+    const onToggle = (index) => {
+        toggleTabs(index)
+    }
+
+
+
     return (
-        <div className="about-hero distribute distribute-even distribute-center">
-
-
-
-            <div className="text-block">
-                <h1>About {name}</h1>
-
-                <h2>
-                    Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fri
-            </h2>
-
+        <div className={"about-stats"}>
+            <div className="header-container">
+                <ul className="distribute distribute-horizontal  distribute-even ">
+                    {data.map((e, i) => {
+                        return (
+                            <a
+                                onClick={() => onToggle(i)}
+                                style={{ opacity: (selected === i) ? '1' : null }}>
+                                {e}
+                            </a>
+                        )
+                    })}
+                </ul>
             </div>
 
-            <div className="hero-image">
-                <img src={photoRef} />
+            <div className={'text-block full-width'}>
+
+                {(data[selected] === 'Biography') && (
+                    <div className="grid required stats-grid">
+                        {bio.map((s, i) => {
+                            return (
+                                <StatsDetailSmall
+                                    textHeader={s.type}
+                                    textDetail={s.value}
+                                />
+                            )
+                        })}
+                    </div>
+                )}
+
+                {(data[selected] === 'Stats') && (
+                    <div className="grid required stats-grid">
+                        {stats.map((s, i) => {
+                            return (
+                                <StatsDetailSmall
+                                    textHeader={s.type}
+                                    textDetail={s.value}
+                                />
+                            )
+                        })}
+                    </div>
+
+                )}
+
+                {(data[selected] === 'Links') && (
+                    <div className="grid required links-grid">
+                        {links.map((s, i) => {
+                            return (
+                                <LinkDetail
+                                    icon={<FacebookIcon color={'white'} />}
+                                    onClick={() => null}
+                                    linkName={s.name}
+                                />
+                            )
+                        })}
+                    </div>
+                )}
             </div>
         </div>
     )
 }
 
-const StatDetails = ({ stats, bio, }) => {
-    return (
-        <div className={"about-stats distribute distribute-even distribute-center"}>
-            <div className={'stat-picker'}>
-                <h1>Bio</h1>
-                <h1>Stats</h1>
-                <h1>Links</h1>
-            </div>
 
-            <div className={'text-block'}>
 
-                <h3>
-                    Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fri
-                 </h3>
 
-            </div>
-        </div>
-    )
-}

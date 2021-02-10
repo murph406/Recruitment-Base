@@ -37,63 +37,221 @@
             .br-2;
         }
     }
-}
 
-.text-block {
+    .text-block {
+        // display: flex;
+        width: 800px;
+        // height: 900px;
+        // flex: 1;
 
-    width: 800px;
-    .pr-2;
-    .pl-2;
-    .pt-2;
-    .pb-4;
+        .pr-2;
+        .pl-2;
+        .pt-2;
+        .pb-4;
 
-    .mq-screen-lg( {
-            width: 600px;
+        .mq-screen-lg( {
+                width: 600px;
+            }
+
+        );
+
+        h1 {
+            .fontSize5;
         }
 
-    );
 
-    h1 {
-        .fontSize5;
+        h2 {
+            .fontSize2;
+            .grey3;
+            .lineHeight4;
+        }
+
+        h3 {
+            .fontSize2;
+            .white;
+            .lineHeight4;
+        }
+
+
+        .stats-grid {
+            .grid-auto-row;
+            .distribute-center;
+            grid-template-columns: 19% 19% 19% 19% 19%;
+            grid-column-start: auto;
+            // margin-top: 75px;
+            // margin-bottom: 75px;
+
+
+            .mq-screen-xs( {
+                    grid-template-columns: 80%;
+                }
+
+            );
+
+            .mq-screen-sm( {
+                    grid-template-columns: 40% 40%
+                }
+
+            );
+
+            .mq-screen-md( {
+                    grid-template-columns: 30% 30% 30%
+                }
+
+            );
+
+            .mq-screen-lg( {
+                    grid-template-columns: 30% 30% 30%
+                }
+
+            );
+        }
+
     }
-
-
-    h2 {
-        .fontSize2;
-        .grey3;
-        .lineHeight4;
-    }
-
-    h3 {
-        .fontSize2;
-        .white;
-        .lineHeight4;
-    }
-
-  
 }
+
+
+
+
+
 
 
 .about-stats {
     .full-width;
-    justify-content: space-between;
+    height: 100%;
+    padding-top: @unit * 3;
+    padding-bottom: @unit * 3;
+    min-height: 80vh;
+    .distribute;
+    .distribute-vertical;
+    .bg-red;
+
+    .header-container {
+        .distribute;
+        .distribute-center;
+        .full-width;
+
+        ul {
+            transition: @allTransition;
 
 
-    .stat-picker {
-        width: 400px;
-        .distribute; 
-        .distribute-vertical; 
-        .distribute-center; 
+            a {
+                .white;
+                .fontSize4;
+                padding: 2rem;
+                // padding: 2rem;
+                opacity: 0.2;
+                transition: @allTransition;
+            }
+
+            .mq-screen-xs( {
+
+                    a {
+                        .fontSize3;
+
+                    }
+                }
+
+            );
+
+            &:hover {
+                a {
+
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+        }
     }
 
-      h1 {
-        .fontSize4;
-        .white;
-        .lineHeight4;
-        text-align: center;
-        cursor: pointer;
 
-        
+    .text-block {
+        overflow: auto;
+        .pr-2;
+        .pl-2;
+        .pt-2;
+        .pb-4;
+        transition: @allTransition;
+
+
+        h1 {
+            .fontSize5;
+        }
+
+
+        h2 {
+            .fontSize2;
+            .grey3;
+            .lineHeight4;
+        }
+
+        h3 {
+            .fontSize2;
+            .white;
+            .lineHeight4;
+        }
+
+
+        .stats-grid {
+            .grid-auto-row;
+            .distribute-center;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-column-start: auto;
+        }
+
+        .links-grid {
+            .grid-auto-row;
+            .distribute-center;
+            grid-template-columns: 30% 30% 30%;
+            grid-column-start: auto;
+            height: 500px;
+
+        }
+
+
+
+        .mq-screen-xs( {
+
+                .stats-grid {
+                    grid-template-columns: 45% 45%;
+                }
+            }
+
+        );
+
+        .mq-screen-sm( {
+                .stats-grid {
+                    grid-template-columns: 45% 45%
+                }
+            }
+
+        );
+
+        .mq-screen-md( {
+                .stats-grid {
+                    grid-template-columns: 30% 30% 30%
+                }
+            }
+
+        );
+
+        .mq-screen-lg( {
+                .stats-grid {
+                    grid-template-columns: 30% 30% 30%
+                }
+            }
+
+        );
+
     }
+
+
+
+
+
+
 
 }
