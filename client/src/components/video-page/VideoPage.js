@@ -8,6 +8,8 @@ export const VideoPage = ({ data, toggleHeader, textDetails, title }) => {
 
     const [currentIndex, setIndex] = useState(0);
     const [active, isVideoActive] = useState(false);
+    const [playing, isVideoPlaying] = useState(false);
+
 
     const onSelectVideo = (index) => {
         setIndex(index)
@@ -25,6 +27,8 @@ export const VideoPage = ({ data, toggleHeader, textDetails, title }) => {
             return
         }
         setIndex(currentIndex + 1)
+        isVideoPlaying(false)
+
     }
 
     const onPrevVideo = () => {
@@ -32,6 +36,12 @@ export const VideoPage = ({ data, toggleHeader, textDetails, title }) => {
             return
         }
         setIndex(currentIndex - 1)
+        isVideoPlaying(false)
+
+    }
+
+    const playVideo = () => {
+        isVideoPlaying(true)
     }
 
     return (
@@ -65,6 +75,8 @@ export const VideoPage = ({ data, toggleHeader, textDetails, title }) => {
                     </div>
 
                     <VideoPlayer
+                        onPlay={() => playVideo()}
+                        isVideoPlaying={playing}
                         currentIndex={currentIndex}
                         src={fullGameRefs} />
                     <div className="right" onClick={onNextVideo}>

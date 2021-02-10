@@ -36,11 +36,25 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    try {
-      const client = await getClient()
+    let isNavDark = false
+    const path = window.location.pathname
 
-      console.log("YEE Boi", client)
-      this.setState({ client: client.data, isAppReady: true })
+    try {
+
+      const client = await getClient()
+      console.log("YEE Boi", path)
+
+      if (
+        path === '/photos' ||
+        path === '/about' ||
+        path === '/highlights' ||
+        path === '/login' ||
+        path === '/full-games'
+      ) {
+        isNavDark = true
+      }
+
+      this.setState({ client: client.data, isAppReady: true, navTheme: (isNavDark) ? 'dark' : 'light' })
 
     } catch (e) {
       console.log("ERR", e)

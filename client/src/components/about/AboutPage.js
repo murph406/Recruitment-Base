@@ -1,24 +1,22 @@
 
 import React, { useState } from 'react';
-import { StatsDetailSmall, LinkDetail, } from '../../elements'
+import { StatsDetailSmall, LinkDetail, BioDetail } from '../../elements'
 import { HeroDetails } from './'
 import { FacebookIcon } from '../../assets/icons/svg-paths'
 
 export const AboutPage = (props) => {
     const { data } = props
-    const { heroPhoto, firstName, stats, links, bio, aboutHero } = data
+    const { heroPhoto, firstName, stats, links, bio, aboutHero, personalInfo } = data
     console.log(data)
     return (
         <div className="full-width">
-            <div className="distribute distribute-center full-width" style={{ height: '75vh' }}>
-                <HeroDetails photoRef={heroPhoto} name={firstName} text={aboutHero} />
+            <div className="distribute distribute-center full-width" style={{ minHeight: '75vh' }}>
+                <HeroDetails photoRef={heroPhoto} name={firstName} text={aboutHero} personalInfo={personalInfo} />
             </div>
-            {/* <div className=" full-width bg-red" style={{minHeight: '70vh'}}> */}
-                <StatDetails
-                    bio={bio}
-                    stats={stats}
-                    links={links} />
-            {/* </div> */}
+            <StatDetails
+                bio={bio}
+                stats={stats}
+                links={links} />
         </div>
     )
 }
@@ -43,8 +41,8 @@ const StatDetails = ({ stats, bio, links }) => {
 
 
     return (
-        <div className={"about-stats"}>
-            <div className="header-container">
+        <div className={"about-stats "}>
+            <div className="header-container ">
                 <ul className="distribute distribute-horizontal  distribute-even ">
                     {data.map((e, i) => {
                         return (
@@ -61,13 +59,12 @@ const StatDetails = ({ stats, bio, links }) => {
             <div className={'text-block full-width'}>
 
                 {(data[selected] === 'Biography') && (
-                    <div className="grid required stats-grid">
+                    <div className="">
                         {bio.map((s, i) => {
                             return (
-                                <StatsDetailSmall
-                                    textHeader={s.type}
-                                    textDetail={s.value}
-                                />
+                                <BioDetail
+                                    headlineText={s.headline}
+                                    detailText={s.text}/>
                             )
                         })}
                     </div>
