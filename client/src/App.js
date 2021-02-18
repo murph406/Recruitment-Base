@@ -27,7 +27,7 @@ class App extends Component {
     super()
     this.state = {
       client: {},
-      isAppReady: false,
+      isAppReady: true,
       navVisibility: 'hidden',
       navListHover: 'not-hover',
       navTheme: 'light',
@@ -141,7 +141,7 @@ class App extends Component {
 
     const { client, isAppReady, navVisibility, navListHover, navTheme, isNavVisible } = this.state
 
-    if (isAppReady) {
+    // if (isAppReady) {
       return (
         <BrowserRouter>
           <Nav
@@ -203,12 +203,12 @@ class App extends Component {
           <Footer isNavVisible={isNavVisible} />
         </BrowserRouter>
       );
-    } else
-      return (
-        <div>
+    // } else
+    //   return (
+    //     <div>
 
-        </div>
-      )
+    //     </div>
+    //   )
 
   }
 }
