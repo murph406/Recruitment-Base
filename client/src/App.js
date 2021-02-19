@@ -42,7 +42,7 @@ class App extends Component {
     try {
 
       const client = await getClient()
-      console.log("YEE Boi", path)
+      console.log("YEE Boi", path, client)
 
       if (
         path === '/photos' ||
@@ -55,6 +55,8 @@ class App extends Component {
       }
 
       this.setState({ client: client.data, isAppReady: true, navTheme: (isNavDark) ? 'dark' : 'light' })
+      console.log("YEE Boi", this.state.client)
+
 
     } catch (e) {
       console.log("ERR", e)
@@ -141,7 +143,7 @@ class App extends Component {
 
     const { client, isAppReady, navVisibility, navListHover, navTheme, isNavVisible } = this.state
 
-    // if (isAppReady) {
+    if (isAppReady) {
       return (
         <BrowserRouter>
           <Nav
@@ -203,12 +205,12 @@ class App extends Component {
           <Footer isNavVisible={isNavVisible} />
         </BrowserRouter>
       );
-    // } else
-    //   return (
-    //     <div>
+    } else
+      return (
+        <div>
 
-    //     </div>
-    //   )
+        </div>
+      )
 
   }
 }

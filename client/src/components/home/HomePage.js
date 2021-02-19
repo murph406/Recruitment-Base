@@ -12,12 +12,11 @@ export const Home = (props) => {
   const { data, onNavTo } = props
   const { heroPhoto, firstName, stats, bio } = data
 
-  console.log("DATA", data)
 
   return (
     <div>
       <Graphic />
-      <Stats stats={[...stats, bio]} />
+      <Stats stats={[...stats, ...bio]} />
       <Hero photoRef={heroPhoto} name={firstName} >
 
         <div style={{ height: '50px', justifyContent: 'center', marginTop: '50px' }}>
