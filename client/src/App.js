@@ -10,7 +10,7 @@ import './css/main.css'
 import { Home, AboutPage, PhotoPage, HighlightPage, LoginPage, VideoPage } from './components'
 import { Footer, Nav, NotFound } from './elements'
 import { getClient } from './api/client'
-// import ScrollToTop from './scrollToTop';
+import ScrollToTop from './scrollToTop';
 
 export const ProjectDetails = [
   { pageName: "Home", slug: '/home', navTheme: 'light', hidden: false },
@@ -27,7 +27,7 @@ class App extends Component {
     super()
     this.state = {
       client: {},
-      isAppReady: true,
+      isAppReady: false,
       navVisibility: 'hidden',
       navListHover: 'not-hover',
       navTheme: 'light',

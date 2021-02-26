@@ -12,7 +12,6 @@ export const Home = (props) => {
   const { data, onNavTo } = props
   const { heroPhoto, firstName, stats, bio } = data
 
-
   return (
     <div>
       <Graphic />

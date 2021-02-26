@@ -1,12 +1,12 @@
 export const StatsDetail = ({ textHeader, textDetail }) => {
     return (
         <div className='stat-detail-large'>
-            <h1>
-                {textHeader}
-            </h1>
-            <p>
+            <h2>
                 {textDetail}
-            </p>
+            </h2>
+            <h3>
+                {textHeader}
+            </h3>
         </div>
     )
 }

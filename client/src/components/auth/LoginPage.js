@@ -39,7 +39,7 @@ export const LoginPage = () => {
                     />
                     <SubmitButton isEnabled={(password.length > 0) ? true : false} />
 
-                    <div className="distribute distribute-center" style={{ width: '40vw' }}>
+                    <div className="distribute distribute-center" style={{ width: '60vw' }}>
                         <p>
                             Login is only available to the owner of this website. If just visiting please stay far away from login and enjoy the content. If you, { },  forgot your password please contact the developer at ryanmurphy125@gmail.com.
                         </p>
