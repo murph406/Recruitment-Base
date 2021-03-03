@@ -4,19 +4,22 @@ import { StatsDetailSmall, LinkDetail, BioDetail } from '../../elements'
 import { HeroDetails } from './'
 import { FacebookIcon } from '../../assets/icons/svg-paths'
 
-export const AboutPage = (props) => {
-    const { data } = props
-    const { heroPhoto, firstName, stats, links, bio, aboutHero, personalInfo } = data
-    console.log(data)
+export const AboutPage = ({ data }) => {
+    const { heroPhoto, firstName, stats, clientLinks, aboutHeroLong, clientStats, clientInfo } = data
+
     return (
         <div className="full-width">
             <div className="distribute distribute-center full-width" style={{ minHeight: '75vh' }}>
-                <HeroDetails photoRef={heroPhoto} name={firstName} text={aboutHero} personalInfo={personalInfo} />
+                <HeroDetails
+                    photoRef={heroPhoto}
+                    name={firstName}
+                    text={aboutHeroLong}
+                    clientStats={clientStats} />
             </div>
             <StatDetails
-                bio={bio}
+                bio={clientInfo}
                 stats={stats}
-                links={links} />
+                links={clientLinks} />
         </div>
     )
 }
@@ -64,7 +67,7 @@ const StatDetails = ({ stats, bio, links }) => {
                             return (
                                 <BioDetail
                                     headlineText={s.headline}
-                                    detailText={s.text}/>
+                                    detailText={s.value} />
                             )
                         })}
                     </div>
@@ -75,7 +78,7 @@ const StatDetails = ({ stats, bio, links }) => {
                         {stats.map((s, i) => {
                             return (
                                 <StatsDetailSmall
-                                    textHeader={s.type}
+                                    textHeader={s.headline}
                                     textDetail={s.value}
                                 />
                             )
@@ -91,7 +94,7 @@ const StatDetails = ({ stats, bio, links }) => {
                                 <LinkDetail
                                     icon={<FacebookIcon color={'white'} />}
                                     onClick={() => null}
-                                    linkName={s.name}
+                                    linkName={s.headline}
                                 />
                             )
                         })}

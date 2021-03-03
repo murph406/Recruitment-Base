@@ -1,7 +1,7 @@
 import { StatsDetailSmall } from '../../elements'
 
 
-export const HeroDetails = ({ photoRef, name, text, personalInfo }) => {
+export const HeroDetails = ({ photoRef, name, text, clientStats }) => {
     return (
         <div className="about-hero full-width pt-5 pb-5">
             <div className=" distribute distribute-even distribute-center pt-5">
@@ -18,11 +18,12 @@ export const HeroDetails = ({ photoRef, name, text, personalInfo }) => {
 
             <div className="full-width pb-5">
                 <div className="grid required stats-grid ">
-                    {personalInfo.map((s, i) => {
+                    {clientStats.map((s, i) => {
                         return (
                             <StatsDetailSmall
-                                textHeader={s.type}
+                                textHeader={s.headline}
                                 textDetail={s.value}
+                                // textDetail={"s.value"}
                                 headlineColor={'black'}
                                 detailColor={'#9e9e9e'}
                             />

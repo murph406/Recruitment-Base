@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 
 var ClientSchema = new mongoose.Schema({
-  firstName: String,
+  firstName: 'String',
   lastName: String,
   email: String,
   password: String,
@@ -11,27 +11,33 @@ var ClientSchema = new mongoose.Schema({
   aboutHero: String,
   aboutHeroLong: String,
   stats: [
-    { type: String, value: Number, date: Date },
+    { headline: String, value: String, },
   ],
-  personalInfo: [
-    { type: String, value: String },
+  clientStats: [
+    { headline: String, value: String },
   ],
-  bio: [
-    { headline: String, text: String },
+  clientInfo: [
+    { headline: String, value: String },
   ],
-  links: [
-    { type: String, value: String, name: String },
+  headlineStats: [
+    { headline: String, value: String },
+  ],
+  clientLinks: [
+    { iconType: String, url: String, headline: String },
   ],
   photoRefs: [
-    { url: String, info: String, date: Date },
+    { url: String, value: String, },
   ],
   highlightRefs: [
-    { url: String, info: String, date: Date, videoId: String },
+    // Youtube Videos Supported Only 
+    { url: String, value: String, videoId: String },
   ],
   fullGameRefs: [
-    { url: String, info: String, date: Date, videoId: String },
+    // Youtube Videos Supported Only 
+    { url: String, value: String, videoId: String },
   ],
 })
+
 
 var ClientSchema = mongoose.model('ClientModel', ClientSchema);
 module.exports = ClientSchema;

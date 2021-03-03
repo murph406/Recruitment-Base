@@ -10,13 +10,13 @@ import { TextButton } from '../../elements/'
 export const Home = (props) => {
 
   const { data, onNavTo } = props
-  const { heroPhoto, firstName, stats, bio } = data
+  const { heroPhoto, firstName, headlineStats, aboutHeroLong } = data
 
   return (
     <div>
       <Graphic />
-      <Stats stats={[...stats, ...bio]} />
-      <Hero photoRef={heroPhoto} name={firstName} >
+      <Stats stats={headlineStats} />
+      <Hero photoRef={heroPhoto} name={firstName} text={aboutHeroLong}>
 
         <div style={{ height: '50px', justifyContent: 'center', marginTop: '50px' }}>
           <TextButton onClick={() => onNavTo('/about')}>

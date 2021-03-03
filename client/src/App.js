@@ -41,7 +41,9 @@ class App extends Component {
 
     try {
 
-      const client = await getClient()
+      let client = await getClient()
+      client = client.data[0]
+
       console.log("YEE Boi", path, client)
 
       if (
@@ -53,8 +55,8 @@ class App extends Component {
       ) {
         isNavDark = true
       }
-
-      this.setState({ client: client.data, isAppReady: true, navTheme: (isNavDark) ? 'dark' : 'light' })
+      // debugger
+      this.setState({ client: client, isAppReady: true, navTheme: (isNavDark) ? 'dark' : 'light' })
       console.log("YEE Boi", this.state.client)
 
 
@@ -207,7 +209,7 @@ class App extends Component {
       );
     } else
       return (
-        <div>
+        <div style={{ backgroundColor: 'red', height: '100vh', width: '100vw' }}>
 
         </div>
       )

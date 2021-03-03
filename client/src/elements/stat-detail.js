@@ -14,12 +14,13 @@ export const StatsDetail = ({ textHeader, textDetail }) => {
 export const StatsDetailSmall = ({ textHeader, textDetail, headlineColor, detailColor }) => {
     return (
         <div className='small-stat-detail'>
-            <div className="text-large" style={{ color: headlineColor }}>
-                {textHeader}
-            </div>
-            <div className="text-small" style={{ color: detailColor }} >
+            <div className="text-large" style={{ color: headlineColor }} >
                 {textDetail}
             </div>
+            <div className="text-small" style={{ color: detailColor }}>
+                {textHeader}
+            </div>
+
         </div>
     )
 }
