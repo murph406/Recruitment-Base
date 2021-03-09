@@ -7,7 +7,7 @@ export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, on
   const { firstName, lastName } = data
 
   return (
-    <div style={{display: (isNavVisible) ? null : 'none'}}>
+    <div style={{ display: (isNavVisible) ? null : 'none' }}>
       <div className="logo">
         <NavLink
           onClick={onNavHome}
@@ -37,14 +37,17 @@ export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, on
         <div className="flex distribute distribute-center">
           <ul className={"nav-list " + (listHover)} onMouseEnter={onListHover} onMouseLeave={onListHover}>
             {projectDetails.map((project, index) => {
-              const { pageName, slug } = project
-              return (
-                <li >
-                  <NavLink onClick={() => onHideNav(slug)} to={slug} >
-                    {pageName}
-                  </NavLink>
-                </li>
-              )
+              const { pageName, slug, hidden } = project
+
+              if (!hidden) {
+                return (
+                  <li >
+                    <NavLink onClick={() => onHideNav(slug)} to={slug} >
+                      {pageName}
+                    </NavLink>
+                  </li>
+                )
+              }
             })}
           </ul>
         </div>

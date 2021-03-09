@@ -101,13 +101,11 @@ export const Box = ({ data, index, onClick }) => {
 
     const thumb = 'http://img.youtube.com/vi/' + videoId + '/0.jpg'
     return (
-        <div>
             <div className="video-container required br-1" onClick={onClick}>
                 <div
                     className="video-thumbnail"
                     key={index}
                     style={{ backgroundImage: `url(${thumb})` }} />
             </div>
-        </div>
     )
 }

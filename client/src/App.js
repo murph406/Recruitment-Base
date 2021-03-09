@@ -7,10 +7,10 @@ import {
 } from 'react-router-dom';
 
 import './css/main.css'
-import { Home, AboutPage, PhotoPage, HighlightPage, LoginPage, VideoPage } from './components'
+import { Home, AboutPage, PhotoPage, LoginPage, VideoPage, ClientControlsPage } from './components'
 import { Footer, Nav, NotFound } from './elements'
 import { getClient } from './api/client'
-import ScrollToTop from './scrollToTop';
+import { ProtectedRoute } from './helpers'
 
 export const ProjectDetails = [
   { pageName: "Home", slug: '/home', navTheme: 'light', hidden: false },
@@ -19,6 +19,7 @@ export const ProjectDetails = [
   { pageName: "Highlights", slug: '/highlights', navTheme: 'dark', hidden: false },
   { pageName: "Full Games", slug: '/full-games', navTheme: 'dark', hidden: false },
   { pageName: "Login", slug: '/login', navTheme: 'dark', hidden: true },
+  { pageName: "Edit Client", slug: '/edit-client', navTheme: 'light', hidden: true },
 ]
 
 
@@ -28,10 +29,11 @@ class App extends Component {
     this.state = {
       client: {},
       isAppReady: false,
+      isNavVisible: true,
+      isAuthenticated: true,
       navVisibility: 'hidden',
       navListHover: 'not-hover',
       navTheme: 'light',
-      isNavVisible: true
     }
   }
 
@@ -51,7 +53,9 @@ class App extends Component {
         path === '/about' ||
         path === '/highlights' ||
         path === '/login' ||
-        path === '/full-games'
+        path === '/full-games' ||
+        path === '/edit-client'
+
       ) {
         isNavDark = true
       }
@@ -143,7 +147,7 @@ class App extends Component {
 
   render() {
 
-    const { client, isAppReady, navVisibility, navListHover, navTheme, isNavVisible } = this.state
+    const { client, isAppReady, navVisibility, navListHover, navTheme, isNavVisible, isAuthenticated } = this.state
 
     if (isAppReady) {
       return (
@@ -197,9 +201,18 @@ class App extends Component {
                 )
               }} />
 
+
+              {/* Auth Logic */}
+
               <Route exact path="/login" render={() => {
                 return <LoginPage />;
               }} />
+
+              <ProtectedRoute
+              isAuthenticated={isAuthenticated}
+              component={ClientControlsPage}/>
+
+
 
               <Route component={NotFound} />
             </Switch>
