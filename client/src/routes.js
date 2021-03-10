@@ -35,11 +35,6 @@ class Routes extends Component {
         }
     }
 
-    componentDidMount() {
-        const { userContext } = this.props
-        const { isAppReady, isAuthenticated, client } = userContext
-    }
-
 
     componentDidMount() {
         let isNavDark = false
@@ -141,11 +136,9 @@ class Routes extends Component {
 
             try {
                 const res = await onAuth(password)
-                debugger
                 history.push("/client-portal")
 
             } catch (e) {
-                debugger
                 console.log(e)
             }
     }
@@ -157,7 +150,6 @@ class Routes extends Component {
 
         if (!isAppReady) {
             // LOAD PAGE LOGIC
-
             return (
                 <div style={{ backgroundColor: 'red', height: '100vh', width: '100vw' }}>
 
@@ -167,7 +159,6 @@ class Routes extends Component {
 
         if (isAppReady) {
             return (
-                // <BrowserRouter>
                 <div>
 
                     <Nav
@@ -238,7 +229,6 @@ class Routes extends Component {
                     <Footer isNavVisible={isNavVisible} />
                 </div>
 
-                // </BrowserRouter>
 
             )
         }

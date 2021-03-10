@@ -35,19 +35,13 @@ export default class Provider extends Component {
 
     async onAuth(password) {
         // Authenticates Client 
-
         try {
             const res = await login(password)
-            debugger
             this.setState({ isAuthenticated: true })
 
         } catch (e) {
             console.log("Err Login Context ", e)
         }
-
-        //   onAuthenticated = async (bool) => {
-        //     // When a user is authenticated from login the root state is updated  
-        //   }
     }
 
     render() {

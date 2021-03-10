@@ -1,25 +1,9 @@
 import React, { useState } from 'react'
 import { LockIcon } from '../../assets/icons/svg-paths'
-import { useHistory } from 'react-router-dom'
-
 
 export function LoginPage({ login }) {
     const [error, toggleError] = useState(false)
     const [password, onChangePassword] = useState('')
-    const history = useHistory();
-
-
-    async function onLogin() {
-        // if resolved on routes then push Client POrtal 
-        try {
-            const res =  login(password)
-            // debugger
-
-
-        } catch (e) {
-            console.log("Err", e)
-        }
-    }
 
     const onChangeText = (text) => {
         console.log("TEXT", text)
@@ -48,7 +32,7 @@ export function LoginPage({ login }) {
                         value={password}
                     />
                     <SubmitButton
-                        onClick={() => onLogin()}
+                        onClick={() => login(password)}
                         isEnabled={(password.length > 0) ? true : false} />
 
                     <div className="distribute distribute-center" style={{ width: '60vw' }}>

@@ -5,8 +5,6 @@ import './css/main.css'
 import ClientProvider, { } from "./context/client";
 import Routes from './routes'
 
-
-
 class App extends Component {
   constructor() {
     super()
