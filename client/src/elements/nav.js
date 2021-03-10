@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ClientIcon } from '../assets/icons/svg-paths'
 
-export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, onHideNav, onToggleNav, onListHover, theme, onNavLogin, isNavVisible }) => {
-
+export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, onHideNav, onToggleNav, onListHover, theme, onNavLogin, isNavVisible, isAuthenticated }) => {
   const { firstName, lastName } = data
 
   return (
@@ -20,12 +19,11 @@ export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, on
 
       <div className="hamburger-container distribute distribute-center ">
 
-        <NavLink to={'/login'} onClick={() => onHideNav('/login')} >
+        <NavLink to={(isAuthenticated) ? "client-portal" : "/login"} onClick={() => onHideNav((isAuthenticated) ? "/client-portal" : "/login")} >
           <div className="client" onClick={onNavLogin}>
             <ClientIcon color={(theme === 'light') ? '#fff' : '#000'} />
           </div>
         </NavLink>
-
 
         <HamburgerIcon
           theme={theme}
@@ -38,7 +36,7 @@ export const Nav = ({ data, projectDetails, listHover, visibility, onNavHome, on
           <ul className={"nav-list " + (listHover)} onMouseEnter={onListHover} onMouseLeave={onListHover}>
             {projectDetails.map((project, index) => {
               const { pageName, slug, hidden } = project
-
+              // UseState and projectDetails data both use variable name "slug". CHeck scope if confused 
               if (!hidden) {
                 return (
                   <li >

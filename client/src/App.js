@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import './css/main.css'
-import { Home, AboutPage, PhotoPage, LoginPage, VideoPage, ClientControlsPage } from './components'
+import { Home, AboutPage, PhotoPage, LoginPage, VideoPage, ClientPortalPage } from './components'
 import { Footer, Nav, NotFound } from './elements'
 import { getClient } from './api/client'
 import { ProtectedRoute } from './helpers'
@@ -19,7 +19,7 @@ export const ProjectDetails = [
   { pageName: "Highlights", slug: '/highlights', navTheme: 'dark', hidden: false },
   { pageName: "Full Games", slug: '/full-games', navTheme: 'dark', hidden: false },
   { pageName: "Login", slug: '/login', navTheme: 'dark', hidden: true },
-  { pageName: "Edit Client", slug: '/edit-client', navTheme: 'light', hidden: true },
+  { pageName: "Client Portal", slug: '/client-portal', navTheme: 'light', hidden: true },
 ]
 
 
@@ -27,10 +27,10 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      client: {},
+      client: null,
       isAppReady: false,
       isNavVisible: true,
-      isAuthenticated: true,
+      isAuthenticated: false,
       navVisibility: 'hidden',
       navListHover: 'not-hover',
       navTheme: 'light',
@@ -42,24 +42,26 @@ class App extends Component {
     const path = window.location.pathname
 
     try {
+      // if(client) {
 
+      // }
       let client = await getClient()
       client = client.data[0]
 
       console.log("YEE Boi", path, client)
 
       if (
+        // Conditions
         path === '/photos' ||
         path === '/about' ||
         path === '/highlights' ||
         path === '/login' ||
         path === '/full-games' ||
-        path === '/edit-client'
+        path === '/client-portal'
 
       ) {
         isNavDark = true
       }
-      // debugger
       this.setState({ client: client, isAppReady: true, navTheme: (isNavDark) ? 'dark' : 'light' })
       console.log("YEE Boi", this.state.client)
 
@@ -119,7 +121,11 @@ class App extends Component {
 
   onHideNav = (navSlug) => {
 
+    // debugger
+
     const page = ProjectDetails.find(d => d.slug === navSlug)
+
+    // debugger
 
     this.setState({ navVisibility: 'hidden', navTheme: page.navTheme });
   }
@@ -145,6 +151,11 @@ class App extends Component {
 
   }
 
+  onAuthenticated = async (bool) => {
+    // When a user is authenticated from login the root state is updated  
+    this.setState({ isAuthenticated: bool })
+  }
+
   render() {
 
     const { client, isAppReady, navVisibility, navListHover, navTheme, isNavVisible, isAuthenticated } = this.state
@@ -161,6 +172,7 @@ class App extends Component {
             onNavHome={this.onNavigateHome}
             onHideNav={(slug) => this.onHideNav(slug)}
             isNavVisible={isNavVisible}
+            isAuthenticated={isAuthenticated}
             onToggleNav={this.onToggleNav}
             onListHover={this.listHover} />
           <div>
@@ -205,12 +217,15 @@ class App extends Component {
               {/* Auth Logic */}
 
               <Route exact path="/login" render={() => {
-                return <LoginPage />;
+                return (
+                  <LoginPage
+                    onAuthenticated={(bool) => this.onAuthenticated(bool)} />
+                )
               }} />
 
               <ProtectedRoute
-              isAuthenticated={isAuthenticated}
-              component={ClientControlsPage}/>
+                isAuthenticated={isAuthenticated}
+                component={ClientPortalPage} />
 
 
 

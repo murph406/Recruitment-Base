@@ -3,17 +3,25 @@ var { ClientService } = require('../services')
 
 module.exports = {
 
-  login: function (req, res, next) {
-    let { password } = req.body
-    console.log(password)
+  login: async function (req, res, next) {
+    
+    let { password, _id } = req.body
+    const client_id = { _id: _id }
 
-    if (password == client.password) {
+    let client = await ClientService.find(client_id);
+
+    console.log("SENT", password, client[0].password)
+
+
+    if (password === client[0].password) {
       // ^^^ Obviously do not keep this 
+      console.log("Authenticated")
+
       return res.status(200).send({ success: true });
     } else {
       return res.status(401).send({ error: "Hint 406" });
     }
-  },
+  },         
 
   get: async function (req, res, next) {
     try {

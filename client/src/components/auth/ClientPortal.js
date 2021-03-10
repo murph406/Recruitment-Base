@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ClientControlsPage = () => {
+export const ClientPortalPage = () => {
 
     const editableContent = [
 

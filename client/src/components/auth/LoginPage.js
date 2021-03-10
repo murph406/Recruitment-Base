@@ -1,14 +1,29 @@
 import React, { useState } from 'react'
 import { LockIcon } from '../../assets/icons/svg-paths'
+import { useHistory } from 'react-router-dom'
+
+import { login } from '../../api/client'
 
 
-export const LoginPage = () => {
+export function LoginPage({ onAuthenticated }) {
     const [error, toggleError] = useState(false)
     const [password, onChangePassword] = useState('')
+    const history = useHistory();
 
 
-    const onLogin = () => {
+    async function onLogin(password) {
+        try {
+            const res = await login(password)
 
+            console.log("LOGIN RESPONSE", res)
+
+            onAuthenticated(true)
+            history.push("/client-portal");
+
+
+        } catch (e) {
+            console.log("Login Err", e)
+        }
     }
 
     const onChangeText = (text) => {
@@ -37,7 +52,9 @@ export const LoginPage = () => {
                         onChangeText={(text) => onChangeText(text)}
                         value={password}
                     />
-                    <SubmitButton isEnabled={(password.length > 0) ? true : false} />
+                    <SubmitButton
+                        onClick={() => onLogin(password)}
+                        isEnabled={(password.length > 0) ? true : false} />
 
                     <div className="distribute distribute-center" style={{ width: '60vw' }}>
                         <p>
@@ -52,10 +69,10 @@ export const LoginPage = () => {
 
 
 
-const SubmitButton = ({ isEnabled, }) => {
+const SubmitButton = ({ isEnabled, onClick }) => {
     return (
-        <div className="submit-button">
-            <input disabled={!isEnabled} type="submit" value="Submit" />
+        <div className="submit-button" >
+            <input disabled={!isEnabled} type="submit" value="Submit" onClick={onClick} />
         </div>
     )
 }
