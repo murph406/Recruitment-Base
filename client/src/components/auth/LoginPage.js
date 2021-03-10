@@ -2,27 +2,22 @@ import React, { useState } from 'react'
 import { LockIcon } from '../../assets/icons/svg-paths'
 import { useHistory } from 'react-router-dom'
 
-import { login } from '../../api/client'
 
-
-export function LoginPage({ onAuthenticated }) {
+export function LoginPage({ login }) {
     const [error, toggleError] = useState(false)
     const [password, onChangePassword] = useState('')
     const history = useHistory();
 
 
-    async function onLogin(password) {
+    async function onLogin() {
+        // if resolved on routes then push Client POrtal 
         try {
-            const res = await login(password)
-
-            console.log("LOGIN RESPONSE", res)
-
-            onAuthenticated(true)
-            history.push("/client-portal");
+            const res =  login(password)
+            // debugger
 
 
         } catch (e) {
-            console.log("Login Err", e)
+            console.log("Err", e)
         }
     }
 
@@ -53,7 +48,7 @@ export function LoginPage({ onAuthenticated }) {
                         value={password}
                     />
                     <SubmitButton
-                        onClick={() => onLogin(password)}
+                        onClick={() => onLogin()}
                         isEnabled={(password.length > 0) ? true : false} />
 
                     <div className="distribute distribute-center" style={{ width: '60vw' }}>

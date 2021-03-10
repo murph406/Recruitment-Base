@@ -8,11 +8,8 @@ router.route('/get:client_id')
     .get(ClientController.get)
 
 
-
-
 router.route('/test')
     .get(ClientController.create)
-
 
 // POST 
 router.route('/create')

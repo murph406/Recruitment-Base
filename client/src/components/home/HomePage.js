@@ -8,7 +8,6 @@ import { TextButton } from '../../elements/'
 
 
 export const Home = (props) => {
-
   const { data, onNavTo } = props
   const { heroPhoto, firstName, headlineStats, aboutHeroLong } = data
 
